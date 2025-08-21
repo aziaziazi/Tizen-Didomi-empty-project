@@ -1,0 +1,21 @@
+{
+  "name": "emptyproject",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite | grep -v 'Deprecation \\[legacy-js-api\\]'",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "tizen-package": "tizen package -t wgt -- dist -o .",
+    "tizen-install": "tizen install -t QE55QN85BATXXC --name emptyProject.wgt",
+    "tizen-run": "tizen run -t QE55QN85BATXXC -p LJryuN4RFG.emptyProject",
+    "tizen-sdb": "sdb -s 172.21.157.177:26101 shell 0 debug LJryuN4RFG.emptyProject",
+    "tizen-start": "npm run tizen-package && npm run tizen-install && npm run tizen-run",
+    "tizen-start-sdb": "npm run tizen-package && npm run tizen-install && npm run tizen-sdb"
+  },
+  "devDependencies": {
+    "vite": "^5.4.18"
+  }
+}
